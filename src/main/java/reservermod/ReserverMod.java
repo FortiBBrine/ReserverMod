@@ -11,6 +11,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import reservermod.item.ModItems;
 
 @Mod(ReserverMod.MODID)
 public class ReserverMod {
@@ -20,6 +21,8 @@ public class ReserverMod {
 
     public ReserverMod() {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+
+        ModItems.register(bus);
 
         bus.addListener(this::commonSetup);
 
@@ -40,6 +43,7 @@ public class ReserverMod {
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
+
         }
     }
 
